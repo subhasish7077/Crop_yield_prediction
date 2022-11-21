@@ -712,7 +712,7 @@ def home():
 
 
 @app.route('/predict_api',methods=['POST'])
-def predict():
+def predict_api():
     data=request.get_json('data')
     print(data)
     n=data.values()
@@ -722,6 +722,16 @@ def predict():
     print(output[0])
     return jsonify(output[0])
 
+@app.route('/predict',methods=['POST'])
+def predict():
+    data=[i for i in request.form.values()]
+    input=create_newdata(data)
+    input=rescalar.transform(input)
+    final_output=regmodel.predict(input)
+    return render_template("home.html",Prediction_text="The yield prediction is {}.".format(round(final_output[0],4))) 
+
+
 if(__name__)=="__main__":
     app.run(debug=True)
+    
 

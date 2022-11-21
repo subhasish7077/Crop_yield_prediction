@@ -3,14 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="widtd=device-widtd, initial-scale=1.0">
     <title>crop yield prediction details fillup</title>
+    <style>
+        .select{
+            width: 200px;
+            height: 30px;
+            margin: 0;
+            padding: 2;
+        }
+        input{
+            width:190px;
+            height:27px;
+            margin: 0;
+            padding: 2;
+        }
+        td{
+            margin: 0;
+            padding: 2;
+            justify-content: left;
+            text-decoration: solid;
+            font-size: larger;
+            font-weight: bolder;
+            font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        }
+    </style>
 </head>
-<body><center>
-    <table cellspacing="5" cellpadding="10">
+<body>
+    <h1><center>CROP YIELD PREDICTION</center></h1>
+    <center>
+        <form action="{{url_for('predict')}}" method="post">
+        <table cellspacing="2" cellpadding="5">
         <tr>
-        <th>State</th>
-        <td><select id="info" name="info">
+        <td>State</td>
+        <td><select class="select" id="info" name="info">
             <option hidden>Select State</option>
             <option value="Andaman and Nicobar Islands">Andaman and Nicobar Islands</option>
             <option value="Andhra Pradesh">Andhra Pradesh</option>
@@ -47,13 +73,13 @@
             <option value="West Bengal">West Bengal</option>
         </select></td></tr>
         <tr>
-            <th>District</th>
+            <td>District</td>
             <td><input type="text" name="district"></td>
         
         </tr>
-        <tr><th>Crop Name</th>
-            <td>  <select id="crop" name="crop">
-                <option hidden>Select State</option>
+        <tr><td>Crop Name</td>
+            <td>  <select class="select" id="crop" name="crop">
+                <option hidden>Select Crop</option>
                 <option value="Rice">Rice</option>
                 <option value="Banana">Banana</option>
                 <option value="Maize">Maize</option>
@@ -67,46 +93,41 @@
             </td>
         </tr>
         <tr>
-            <th><label>Area</label></th>
-            <td><input type="number" name="area"></td>
+            <td><label>Area</label></td>
+            <td><input type="number" step="any" name="area"></td>
         </tr>
         <tr>
-            <th><label>Temperature</label></th>
-            <td><input type="number" name="Temperature"></td>
+            <td><label>Temperature</label></td>
+            <td><input type="number" step="any" name="Temperature"></td>
         </tr>
         <tr>
-            <th><label>Humidity</label></th>
-            <td><input type="number" name="Humidity"></td>
+            <td><label>Humidity</label></td>
+            <td><input type="number" step="any" name="Humidity"></td>
         </tr>
         <tr>
-            <th><label>Wind Speed</label></th>
-            <td> <input type="number" name="Windspeed"><br><br></td>
+            <td><label>Wind Speed</label></td>
+            <td><input type="number" step="any" name="Windspeed"></td>
         </tr>
         <tr>
-            <th><label>Nitrogen</label></th>
-            <td><input type="text" name="nitrogen"></td>
+            <td><label>Nitrogen</label></td>
+            <td><input type="number" step="any" name="nitrogen"></td>
         </tr>
         <tr>
-            <th><label>Phosphorus</label></th>
-            <td><input type="text" name="phosphorus"></td>
+            <td><label>Phosphorus</label></td>
+            <td><input type="number" step="any" name="phosphorus"></td>
         </tr>
         <tr>
-            <th><label>Potassium</label></th>
-            <td><input type="text" name="potassium"><br><br></td>
+            <td><label>Potassium</label></td>
+            <td><input type="number" step="any" name="potassium"></td>
         </tr>
-        
-        <tr>
-            <th><label>Prediction</label></th>
-            <td><input type="text" name="pred"></td>
-        </tr>
-        
-        <tr><th></th>
-        <td><input type="submit"></td>
+        <tr><td></td>
+        <td><button>Predict</button></td>
     </tr>
-      
     </table>
-   
-   
-    </center>
+</form>
+
+<h2>{{Prediction_text}}</h2>
+</center>
+
 </body>
 </html>
