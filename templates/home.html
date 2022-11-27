@@ -45,9 +45,7 @@
         window.onload = function() {
           var subjectSel = document.getElementById("state");
           var topicSel = document.getElementById("district");
-        //   var chapterSel = document.getElementById("chapter");
           for (var x in subjectObject) {
-            console.log(x)
             subjectSel.options[subjectSel.options.length] = new Option(x, x);
           }
           subjectSel.onchange = function() {
@@ -137,12 +135,12 @@
             <td><input type="number" step="any" name="Temperature"></td>
         </tr>
         <tr>
-            <td><label>Humidity</label></td>
-            <td><input type="number" step="any" name="Humidity"></td>
-        </tr>
-        <tr>
             <td><label>Wind Speed</label></td>
             <td><input type="number" step="any" name="Windspeed"></td>
+        </tr>
+        <tr>
+            <td><label>Humidity</label></td>
+            <td><input type="number" step="any" name="Humidity"></td>
         </tr>
         <tr>
             <td><label>Nitrogen</label></td>
