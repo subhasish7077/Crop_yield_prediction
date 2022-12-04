@@ -4,7 +4,7 @@ import numpy as np
 import pandas as pd
 
 app=Flask(__name__)
-##Load the Model
+#Load the Model
 regmodel=pickle.load(open('regression.pkl','rb'))
 rescalar=pickle.load(open('scalar.pkl','rb'))
 def create_newdata(n):
@@ -46,7 +46,6 @@ def predict():
     input=rescalar.transform(input)
     final_output=regmodel.predict(input)
     return render_template("home.html",Prediction_text="The yield prediction is {}.".format(round(final_output[0],4))) 
-
 
 if(__name__)=="__main__":
     app.run(debug=True)
